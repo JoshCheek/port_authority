@@ -58,7 +58,9 @@ end
 * a gem to provide rubygems interop
 * Support searching by license, author, percent of test coverage, number of dependencies, number of lines of code, specific dependencies (ie filter for just packages that deal with sockets, or exclude packages that access global state)
 * Fun thought: could totally support coffeescript style literate programming
-* No need for onload/onunload callbacks, b/c all state will be stored in the declared `global_state` object. So your code can disappear as references are lost, and reappear as they are re-required, with no worry about getting into an inconsistent state.
+* No need for onload/onunload callbacks, b/c all state will be stored in the declared `global_state` object.
+  So your code can disappear as references are lost, and reappear as they are re-required, with no worry about getting into an inconsistent state.
+  This saves the developer from having to deal with the complexity of managing their state, exposes the state, and allows the code to be safely garbage collected and reloaded.
 * Source code is not included in the package. Rather, the charter declares a git repo and sha, the code is downloaded on demand. The site to host / search these just deals with charter.json
 * Charter can specify viable ruby versions
 * files will not be added to the load path, so organize your files how you like, and global load times will not be affected.
